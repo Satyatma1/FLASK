@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental</title>
+</head>
+<body>
+    <h1>Choose a Car to Rent</h1>
+    <ul>
+        {% for car in cars %}
+        <li>{{ car.model }} ({{ car.year }})
+            <form action="/rent" method="post">
+                <input type="hidden" name="car_id" value="{{ car.id }}">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <button type="submit">Rent This Car</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
